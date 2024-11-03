@@ -1,0 +1,136 @@
+/* עיצוב ברירת מחדל - מובייל קודם */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+div, input {
+    /* border: 0.5px solid red; */
+}
+
+#mainDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+#headerDiv {
+    width: 100%;
+    padding: 10px;
+    background-color: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#restHeaderComponentsDiv {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+#logoDiv {
+    width: 30%;
+    background-image: url("../dep/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 40px;
+}
+
+#linksDiv, #loginDiv, #myAccountDiv {
+    width: 20%;
+    text-align: center;
+    height: 40px;
+}
+
+
+
+
+#searchbarDiv {
+    width: 90%;
+    padding: 5px;
+    background-color: #e8e8e8;
+    height: 30px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+#searchbarInput {
+    width: 100%;
+    height: 100%;
+}
+
+#searchButtonDiv {
+    width: fit-content;
+    height: 100%;
+}
+
+
+
+
+
+#mainContainerDiv {
+    width: 100%;
+    background-color: #fff;
+}
+
+#searchResultDiv {
+    padding: 10px;
+}
+
+#footerDiv {
+    width: 100%;
+    padding: 10px;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+/* עיצוב למסכי מחשב - רזולוציה של 1366x600 */
+@media (min-width: 1366px) {
+    #mainDiv {
+        max-width: 1366px;
+        padding: 20px;
+    }
+
+    #headerDiv {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    #restHeaderComponentsDiv {
+        width: 100%;
+        display: flex;
+        gap: 10px;
+    }
+
+    #logoDiv {
+        width: 150px;
+        height: 50px;
+    }
+
+    #linksDiv, #loginDiv, #myAccountDiv {
+        width: auto;
+        padding: 0 15px;
+        height: auto;
+    }
+
+    #searchbarDiv {
+        width: 60%;
+        height: 35px;
+    }
+
+    #mainContainerDiv {
+        padding: 20px;
+    }
+
+    #footerDiv {
+        padding: 15px;
+    }
+}
