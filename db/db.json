@@ -1,5 +1,5 @@
 {
-    "prodact": [
+    "products": [
         {
             "id": 748596,
             "name": "soft white cheese",
@@ -28,7 +28,7 @@
             "password": "1234"
         }
     ],
-    "cart": [
+    "carts": [
         {
             "id": 999999,
             "userId": 0,
