@@ -1,0 +1,39 @@
+{
+    "prodact": [
+        {
+            "id": 0,
+            "name": "",
+            "weight": "",
+            "manufacture": "",
+            "imgLink": "",
+            "description": "",
+            "price": 0
+        }
+    ],
+    "users": [
+        {
+            "id": 0,
+            "firstName": "",
+            "lastName": "",
+            "email": "",
+            "address": "",
+            "password": ""
+        }
+    ],
+    "cart": [
+        {
+            "id": 9999,
+            "userId": 0,
+            "prodacts": [
+                {
+                    "idProdact": 884358,
+                    "amount": 4
+                },
+                {
+                    "idProdact": 884251,
+                    "amount": 4
+                }
+            ]
+        }
+    ]
+}
