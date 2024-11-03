@@ -1,5 +1,5 @@
 {
-    "prodact": [
+    "prodacts": [
         {
             "id": 0,
             "name": "",
@@ -20,7 +20,7 @@
             "password": ""
         }
     ],
-    "cart": [
+    "carts": [
         {
             "id": 9999,
             "userId": 0,
