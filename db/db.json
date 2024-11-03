@@ -1,36 +1,40 @@
 {
-    "prodacts": [
+    "products": [
         {
-            "id": 0,
-            "name": "",
-            "weight": "",
-            "manufacture": "",
-            "imgLink": "",
-            "description": "",
-            "price": 0
+            "id": 748596,
+            "name": "soft white cheese",
+            "weight": "500g",
+            "manufacture": "Tnuva",
+            "imgLink": "https://parskoshermarket.com/cdn/shop/products/tnuva5percent_442x.png?v=1590620260",
+            "description": "Israeli white cheese: a soft, creamy cheese with a mild, refreshing flavor. Perfect for spreading and versatile for light meals and snacks.",
+            "price": 10
         }
     ],
     "users": [
         {
             "id": 0,
-            "firstName": "",
-            "lastName": "",
-            "email": "",
-            "address": "",
-            "password": ""
+            "firstName": "Ori",
+            "lastName": "Halevi",
+            "email": "Ori@gmail.com",
+            "address": "greenberg",
+            "password": "1234"
+        },
+        {
+            "id": 0,
+            "firstName": "Binyamin",
+            "lastName": "Zaidman",
+            "email": "Binyamin@gmail.com",
+            "address": "redberg",
+            "password": "1234"
         }
     ],
     "carts": [
         {
-            "id": 9999,
+            "id": 999999,
             "userId": 0,
             "prodacts": [
                 {
-                    "idProdact": 884358,
-                    "amount": 4
-                },
-                {
-                    "idProdact": 884251,
+                    "idProdact": 748596,
                     "amount": 4
                 }
             ]
