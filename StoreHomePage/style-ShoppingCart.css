@@ -1,0 +1,51 @@
+#blackDiv {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#cartDiv {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    background-color: white;
+}
+
+#cartHeaderDiv {
+    width: 100%;
+    height: 50px;
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+#cartBodyDiv {
+    width: 100%;
+    height: 450px;
+    overflow-y: scroll;
+}
+
+
+
+
+.removeFromCartBtn {
+    width: 100%;
+    height: 50px;
+    background-color: #ffeaea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+.removeFromCartBtn:hover {
+    background-color: #ff8080;
+    cursor: pointer;
+}

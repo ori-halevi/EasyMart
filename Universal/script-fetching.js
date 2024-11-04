@@ -90,7 +90,7 @@ async function updateCartProduct(userId, productId, amount) {
 
         // יצירת רשימת מוצרים מעודכנת
         const updatedProducts = [...cart.prodacts];
-        const existingProductIndex = updatedProducts.findIndex(p => p.idProdact === productId);
+        const existingProductIndex = updatedProducts.findIndex(p => p.productId === productId);
 
         if (existingProductIndex !== -1) {
             if (amount === 0) {
@@ -102,7 +102,7 @@ async function updateCartProduct(userId, productId, amount) {
             }
         } else if (amount > 0) {
             // אם המוצר לא קיים והכמות גדולה מ-0, נוסיף אותו
-            updatedProducts.push({ idProdact: productId, amount: amount });
+            updatedProducts.push({ productId: productId, amount: amount });
         }
 
         // עדכון cart עם המוצרים המעודכנים
