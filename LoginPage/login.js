@@ -14,9 +14,15 @@ function getDetails() {
   return { Emailaddress, password }; // מחזיר כאובייקט
 }
 
-function callToisUserExistInDB() {
+function callToIsUserExistInDB() {
   const { Emailaddress, password } = getDetails(); // שימוש נכון ב-destructuring
-  isUserExistInDB(Emailaddress, password);
+  if(checkValidation()) {
+    isUserExistInDB(Emailaddress, password);
+  }
+  else{
+    console.error("Error: Name or password is empty");
+    return
+  }
 }
 
 function isUserExistInDB(Emailaddress, password) {
@@ -33,25 +39,25 @@ function isUserExistInDB(Emailaddress, password) {
   });
 }
 
-function insertElementError(areaClass, element) {
-  if (typeof areaClass !== "string" || areaClass.trim() === "") {
-    console.error("Error: areaClass must be a non-empty string");
-    return;
-  }
+// function insertElementError(areaClass, element) {
+//   if (typeof areaClass !== "string" || areaClass.trim() === "") {
+//     console.error("Error: areaClass must be a non-empty string");
+//     return;
+//   }
 
-  if (!(element instanceof HTMLElement)) {
-    console.error("Error: element must be a valid HTML element");
-    return;
-  }
+//   if (!(element instanceof HTMLElement)) {
+//     console.error("Error: element must be a valid HTML element");
+//     return;
+//   }
 
-  element.innerText = "Name or password is empty";
-  const targetArea = document.querySelector(areaClass);
-  if (targetArea) {
-    targetArea.appendChild(element);
-  } else {
-    console.error("Error: Target area not found for class:", areaClass);
-  }
-}
+//   element.innerText = "Name or password is empty";
+//   const targetArea = document.querySelector(areaClass);
+//   if (targetArea) {
+//     targetArea.appendChild(element);
+//   } else {
+//     console.error("Error: Target area not found for class:", areaClass);
+//   }
+// }
 
 function checkValidation() {
   const Emailaddress = getInputUser("loginUserName");
