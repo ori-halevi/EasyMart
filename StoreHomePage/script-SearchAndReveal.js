@@ -1,24 +1,94 @@
 
-const searchInput = document.getElementById("searchInput");
+const searchInput = document.getElementById("searchbarInput");
 const searchResultDiv = document.getElementById("searchResultDiv");
+const loginDiv = document.getElementById("loginDiv");
+const myCartDiv = document.getElementById("myCartDiv");
 
-window.onload = () => {
-    revealProductsOnPage();
+window.onload = async () => {
+    await revealProductsOnPage("");
+    if (isCurrentUserExistInLS()) {
+        loginDiv.style.display = "none";        
+    } else {
+        // myCartDiv.style.display = "none";
+    }
 };
 
 
 
+searchInput.addEventListener("input", async () => {
+    console.log(searchInput.value);
+    
+    const AllProductsOnPage = document.querySelectorAll(".productDiv");
+    console.log("Total products on page:", AllProductsOnPage.length);
+
+    // Display all products before applying filter
+    AllProductsOnPage.forEach(product => {
+        product.style.display = "block";
+    });
+
+    for (let i = 0; i < AllProductsOnPage.length; i++) {
+        const productName = AllProductsOnPage[i].querySelector(".productName").textContent;
+        console.log("Checking product:", productName);
+
+        if (!productName.toLowerCase().includes(searchInput.value.toLowerCase())) {
+            AllProductsOnPage[i].style.display = "none";
+            console.log("Hiding product:", productName);
+        }
+    }
+});
 
 
 
-function revealProductsOnPage() { 
-    const products = getAllProducts();
-    products.then((products) => {
-        products.forEach((product) => {
+
+
+
+
+async function revealProductsOnPage() {
+    const products = await getAllProducts();
+    products.forEach((product) => {
             createProductCard(product);
         });
-    });
+    };
+
+
+function addToCart(product) {
+    if (isCurrentUserExistInLS()) {
+        updateCartProduct(13231, product.id, 1);
+    } else {
+        alert("Please login first");
+    }
 }
+
+
+
+
+function openCart() {
+    if (!isCurrentUserExistInLS()) return;
+    
+
+}
+
+
+
+
+
+
+
+
+loginDiv.addEventListener("click", () => {
+    window.location.href = "../LoginPage/login.html";
+})
+
+
+
+myCartDiv.addEventListener("click", () => {
+    openCart();
+})
+
+
+
+
+
 
 
 
@@ -54,7 +124,6 @@ function createProductCard(product) {
     const addToCartBtnDiv = document.createElement("div");
     addToCartBtnDiv.classList.add("addToCartBtnDiv");
     addToCartBtnDiv.textContent = "Add to cart";
-    addToCartBtnDiv.classList.add("addToCartBtn");
     addToCartBtnDiv.addEventListener("click", () => {
         addToCart(product);
     })

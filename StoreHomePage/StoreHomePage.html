@@ -4,9 +4,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Easy Mart</title>
     <link rel="stylesheet" href="style-StoreHomePage.css">
+    <link rel="stylesheet" href="style-products.css">
 </head>
 <body>
     <div id="mainDiv">
+        
+        <div id="blackDiv">
+            <div id="cartDiv">
+                <div id="cartHeaderDiv"></div>
+                <div id="cartBodyDiv"></div>
+            </div>
+        </div>
+
 
         <div id="headerDiv">
 
@@ -31,18 +40,15 @@
                     <img src="https://www.shufersal.co.il/online/_ui/responsive/theme-miglog/img/header+Navigation/header-new-icons-user.svg" alt="">
                 </div>
 
-                <div id="myAccountDiv">
-                    <span>my account</span>
-                    <img src="https://www.shufersal.co.il/online/_ui/responsive/theme-miglog/img/header+Navigation/header-new-icons-user.svg" alt="">
+                <div id="myCartDiv">
+                    <span>my cart</span>
+                    <img src="https://www.shufersal.co.il/online/_ui/responsive/theme-miglog/img/header+Navigation/icon-openCart.svg" alt="">
                 </div>
 
             </div>
 
             <div id="searchbarDiv">
 
-                <div id="searchButtonDiv">
-                    <img src="https://www.shufersal.co.il/online/_ui/responsive/theme-miglog/img/header+Navigation/ic-search-in-circle-new.svg" alt="">
-                </div>
 
                 <input id="searchbarInput" type="text" placeholder="">
 
@@ -62,5 +68,6 @@
     <script src="script-fixStyleSearchbarForDesktop.js"></script>
     <script src="./script-SearchAndReveal.js"></script>
     <script src="../Universal/script-fetching.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>
