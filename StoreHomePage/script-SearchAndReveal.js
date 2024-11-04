@@ -1,10 +1,16 @@
 
 const searchInput = document.getElementById("searchbarInput");
 const searchResultDiv = document.getElementById("searchResultDiv");
-
+const loginDiv = document.getElementById("loginDiv");
+const myCartDiv = document.getElementById("myCartDiv");
 
 window.onload = async () => {
     await revealProductsOnPage("");
+    if (isCurrentUserExistInLS()) {
+        loginDiv.style.display = "none";        
+    } else {
+        // myCartDiv.style.display = "none";
+    }
 };
 
 
@@ -46,10 +52,46 @@ async function revealProductsOnPage() {
 
 
 function addToCart(product) {
-    console.log(product);
-    
-    updateCartProduct(13231, product.id, 1);
+    if (isCurrentUserExistInLS()) {
+        updateCartProduct(13231, product.id, 1);
+    } else {
+        alert("Please login first");
+    }
 }
+
+
+
+
+function openCart() {
+    if (!isCurrentUserExistInLS()) return;
+    
+
+}
+
+
+
+
+
+
+
+
+loginDiv.addEventListener("click", () => {
+    window.location.href = "../LoginPage/login.html";
+})
+
+
+
+myCartDiv.addEventListener("click", () => {
+    openCart();
+})
+
+
+
+
+
+
+
+
 
 
 
