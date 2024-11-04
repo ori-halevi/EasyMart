@@ -7,12 +7,13 @@
     <title>Easy maret</title>
     <link rel="stylesheet" href="login.css">
     <script src="login.js" defer></script>
+    <script src="click.js" defer></script>
 </head>
 
 <body>
     <div class="container">
         <div class="hedaer">
-            <img src="logo.jpg" alt="imagforlogo" id="imgLOgo">
+            <img src="../dep/logo.png" alt="imagforlogo" id="imgLOgo">
         </div>
         <div class="main">
             <div class="login">
@@ -24,27 +25,28 @@
                         <label for="loginPassword"></label><input type="password" id="loginPassword"
                             placeholder="password with 8 digit *" size="8" required>
                         <button class="btn" id="login" type="submit">login</button>
-                        <button class="btn" id="createAccountBtn">create account</button>
                     </div>
                 </form>
+                <button class="btn" id="createAccountBtn">create account</button>
             </div>
 
             <div class="signUP">
                 <form action="#">
                     <div class="signUPUser">
-                        <label for="inputsignUpUserName">enter your user name: </label><input type="text"
-                            id="inputsignUpUserName" placeholder="enter user name">
-                        <label for="inputsignUpPassword">enter your password: </label><input type="password"
-                            id="inputsignUpPassword" placeholder="enter pssword">
-                        <label for="inputsignUpemail">enter your email: </label><input type="email"
-                            id="inputsignUpemail" placeholder="enter password">
-                        <label for="inputsignUpemail">enter your email: </label><input type="email"
-                            id="inputsignUpemail" placeholder="enter password">
-                        <label for="inputsignUpemail">enter your email: </label><input type="email"
-                            id="inputsignUpemail" placeholder="enter password *" required >
-                        <button class="btn" id="signUpSubmit" type="submit">submit</button>
+                        <label for="inputSignUpFirstName">enter first name: </label><input type="text"
+                            id="inputSignUpFirstName" placeholder="first name">
+                        <label for="inputsignUpLastName">enter last name: </label><input type="text"
+                            id="inputsignUpLastName" placeholder="last name">
+                        <label for="inputsignUpemail">enter email: </label><input type="email" id="inputsignUpemail"
+                            placeholder="email">
+                        <label for="inputsignUpAddress">enter addres: </label><input type="text"
+                            id="inputsignUpAddress" placeholder="address">
+                        <label for="inputsignUppassword">enter your password: </label><input type="password"
+                            id="inputsignUppassword" placeholder="enter password *" required>
+                        <button class="btn" id="signUpSubmit" type="submit">signup</button>
                     </div>
                 </form>
+                <button class="btn" id="loginFromSignUp" type="submit">login</button>
             </div>
 
         </div>
