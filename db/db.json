@@ -8,42 +8,6 @@
       "imgLink": "https://parskoshermarket.com/cdn/shop/products/tnuva5percent_442x.png?v=1590620260",
       "description": "Israeli white cheese: a soft, creamy cheese with a mild, refreshing flavor. Perfect for spreading and versatile for light meals and snacks.",
       "price": 10
-    },
-    {
-      "id": "348596",
-      "name": "cheese",
-      "weight": "500g",
-      "manufacture": "Tnuva",
-      "imgLink": "https://parskoshermarket.com/cdn/shop/products/tnuva5percent_442x.png?v=1590620260",
-      "description": "Israeli white cheese: a soft, creamy cheese with a mild, refreshing flavor. Perfect for spreading and versatile for light meals and snacks.",
-      "price": 10
-    },
-    {
-      "id": "423456",
-      "name": "white cheese",
-      "weight": "500g",
-      "manufacture": "Tnuva",
-      "imgLink": "https://parskoshermarket.com/cdn/shop/products/tnuva5percent_442x.png?v=1590620260",
-      "description": "Israeli white cheese: a soft, creamy cheese with a mild, refreshing flavor. Perfect for spreading and versatile for light meals and snacks.",
-      "price": 10
-    },
-    {
-      "id": "740000",
-      "name": "hummus",
-      "weight": "500g",
-      "manufacture": "achla",
-      "imgLink": "https://shoppy.co.il/cdn/shop/products/ahlahummuslemongarlic_1200x1200.png?v=1641413539",
-      "description": "Achla hummus is a delicious, creamy hummus made from chickpeas, tahini, garlic, and olive oil. It is a popular dish in Israel and beyond.",
-      "price": 10
-    },
-    {
-      "id": "123456",
-      "name": "hummus",
-      "weight": "500g",
-      "manufacture": "achla",
-      "imgLink": "https://shoppy.co.il/cdn/shop/products/ahlahummuslemongarlic_1200x1200.png?v=1641413539",
-      "description": "Achla hummus is a delicious, creamy hummus made from chickpeas, tahini, garlic, and olive oil. It is a popular dish in Israel and beyond.",
-      "price": 10
     }
   ],
   "users": [
@@ -53,7 +17,7 @@
       "lastName": "Halevi",
       "email": "Ori@gmail.com",
       "address": "greenberg",
-      "password": "1234"
+      "password": "12341234"
     },
     {
       "id": "1",
@@ -61,7 +25,7 @@
       "lastName": "Zaidman",
       "email": "Binyamin@gmail.com",
       "address": "redberg",
-      "password": "1234"
+      "password": "12341234"
     }
   ],
   "carts": [

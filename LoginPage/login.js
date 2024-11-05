@@ -1,43 +1,43 @@
 function getAllUsers() {
-  return fetch("http://localhost:3000/users").then((res) => res.json()); // Fix typo here
+  return fetch("http://localhost:5000/users").then((res) => res.json()); // Fix typo here
 }
-
 
 function getInputUser(id) {
   const input = document.getElementById(id).value;
   return input;
 }
 
-function getDetails() {
-  const Emailaddress = getInputUser("loginUserName");
-  const password = getInputUser("loginPassword");
-  return { Emailaddress, password }; // מחזיר כאובייקט
+function getDetails(Emailaddress, passwordFromuser) {
+  const emailaddress = getInputUser(Emailaddress);
+  const password = getInputUser(passwordFromuser);
+  return { emailaddress, password }; // מחזיר כאובייקט
 }
 
 function callToIsUserExistInDB() {
   const { Emailaddress, password } = getDetails(); // שימוש נכון ב-destructuring
-  if(checkValidation()) {
+  if (checkValidation()) {
     isUserExistInDB(Emailaddress, password);
-  }
-  else{
+  } else {
     console.error("Error: Name or password is empty");
-    return
+    return;
   }
 }
 
-function isUserExistInDB(Emailaddress, password) {
+function isUserExistInDB(emailAddress, password) {
   return getAllUsers().then((users) => {
     const user = users.find(
-      (u) => u.email === Emailaddress && u.password === password
+      (u) => u.email == emailAddress && u.password == password
     );
-
+    console.log(user);
+    
     if (user) {
       return Promise.resolve(user);
     } else {
-      return Promise.reject();
+      return Promise.reject(new Error("User not found or incorrect password"));
     }
   });
 }
+
 
 // function insertElementError(areaClass, element) {
 //   if (typeof areaClass !== "string" || areaClass.trim() === "") {
@@ -110,8 +110,11 @@ function passwordValidation(password) {
 
 //לבנות פונקציה שמקבלת את הנתונים ומכניסה לדאטה בייס ומכניסה ללוקל ומרעננת דף
 function insertUserToLS(user) {
-  localStorage.setItem("currentUser", JSON.stringify(user));
-  window.location.reload();
+  try {
+    localStorage.setItem("currentUser", JSON.stringify(user));
+  } catch (error) {
+    console.error("Error inserting user:", error);
+  }
 }
 // Execute the check function
 

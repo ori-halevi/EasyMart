@@ -1,7 +1,6 @@
 function getAllUsers() {
-  return fetch("http://localhost:3000/users").then((res) => res.json()); // Fix typo here
+  return fetch("http://localhost:5000/users").then((res) => res.json()); // Fix typo here
 }
-
 
 function getInputUser(id) {
   const input = document.getElementById(id).value;
