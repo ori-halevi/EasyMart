@@ -6,10 +6,6 @@ body, html {
     font-family: Arial, sans-serif;
 }
 
-div, input {
-    /* border: 0.5px solid red; */
-}
-
 #mainDiv {
     display: flex;
     flex-direction: column;
