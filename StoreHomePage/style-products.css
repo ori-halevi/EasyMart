@@ -1,66 +1,110 @@
+/* עיצוב מודרני ורספונסיבי */
+
 .productDiv {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 300px;
-    margin: 10px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border: 1px solid red;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 100%;
+    margin: 10px auto;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.productDiv:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .productInfoDiv {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 20px;
+    gap: 10px;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s;
 }
 
+.productInfoDiv:hover {
+    background-color: #f1f1f1;
+}
 
 .productImg {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .productName {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 10px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 6px 0;
 }
 
-.productWeight {
-    font-size: 18px;
-    margin: 10px 0;
+.productWeight, .productPrice {
+    font-size: 14px;
+    color: #555;
+    margin: 4px 0;
 }
 
 .productPrice {
-    font-size: 20px;
     font-weight: bold;
-    margin: 10px 0;
+    color: #2c3e50;
 }
 
 .addToCartBtnDiv {
-    width: 200px;
-    padding: 10px;
+    padding: 10px 18px;
     border: none;
     border-radius: 20px;
-    background: rgb(83, 237, 191);
-    color: black;
-    font-weight:bolder;
-    margin: 10px 0;
+    background-color: #00796b;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
     cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 8px;
 }
 
 .addToCartBtnDiv:hover {
-    color: aliceblue;
-}   
+    background-color: #00695c;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* עיצוב רספונסיבי */
+
+.productsContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 15px;
+}
+
+@media (min-width: 600px) {
+    .productsContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .productDiv {
+        max-width: 45%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .productsContainer {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .productDiv {
+        max-width: 23%;
+    }
+}

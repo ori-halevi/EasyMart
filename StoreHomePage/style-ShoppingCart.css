@@ -1,231 +1,157 @@
-/* #blackDiv {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-#cartDiv {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-   
-    width: 500px;
-    height: 500px;
-    background-color: rgb(158, 238, 214);
-}
-
-#cartHeaderDiv {
-    width: 100%;
-    height: 50px;
-    background-color: #f1f1f1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-}
-
-#cartBodyDiv {
-    width: 100%;
-    height: 450px;
-    overflow-y: scroll;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-
-
-.removeFromCartBtn {
-    width: 70%;
-    height: 30px;
-    background-color: #ffeaea;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-radius: 10px;
-}
-.removeFromCartBtn:hover {
-    background-color: #ff8080;
-    cursor: pointer;
-} */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*  גיפיטי */
-
-
-
+/* מסך כהה רקע */
 #blackDiv {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.6);
     display: none;
-    /* מוחבא כשלא בשימוש */
     z-index: 99;
 }
 
+/* עיצוב מודרני לחלונית הקנייה - מובייל פירסט */
 #cartDiv {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 500px;
-    height: 500px;
-    background-color: rgb(158, 238, 214);
+    width: 90vw; /* רוחב מותאם לנייד */
+    max-width: 500px; /* מקסימום רוחב לדסקטופ */
+    height: 80vh; /* גובה מותאם לנייד */
+    max-height: 600px; /* מקסימום גובה לדסקטופ */
+    background-color: #ffffff;
     border-radius: 15px;
-    overflow-y: scroll;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    display: flex;
     flex-direction: column;
     z-index: 100;
 }
 
+/* כותרת עגלת הקניות */
 #cartHeaderDiv {
     font-size: 24px;
     font-weight: bold;
-    color: #333;
-    background-color: #f1f1f1;
-    padding: 10px;
+    color: #2c3e50;
+    background-color: #e0f7fa;
+    padding: 15px;
     text-align: center;
+    border-bottom: 2px solid #b2ebf2;
+    letter-spacing: 1px;
 }
 
+/* גוף עגלת הקניות */
 #cartBodyDiv {
     flex: 1;
-    /* נותן מקום לגוף */
     padding: 10px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
-.productDiv {
+/* עיצוב מוצר בעגלה */
+.SCproductDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80%; /* התאמה למובייל */
+    background-color: #f3f8fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 15px;
+    margin: 10px auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.SCproductDiv:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* אזור מידע על המוצר */
+.productInfoDiv {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    width: 90%;
-    /* התאמת רוחב לרוחב העגלה */
-    background-color: #f7f7f7;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    margin: 10px auto;
-    padding: 15px;
-    transition: transform 0.3s ease;
-}
-
-.productDiv:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.productInfoDiv {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    gap: 10px;
 }
 
 .productImg {
     width: 60px;
     height: 60px;
-    border-radius: 5px;
-    margin-right: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .productName {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
-    color: #333;
+    color: #34495e;
 }
 
 .productWeight,
 .productPrice,
 .productAmount {
-    font-size: 16px;
-    color: #666;
+    font-size: 14px;
+    color: #7f8c8d;
 }
 
+/* כפתור הסרה מהעגלה */
 .removeFromCartBtn {
-    background-color: #ff8a80;
+    background-color: #ff6b6b;
     color: #fff;
-    width: auto;
     padding: 8px 16px;
-    border-radius: 10px;
+    border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s;
+    border: none;
+    font-size: 14px;
 }
 
 .removeFromCartBtn:hover {
     background-color: #ff5252;
 }
 
+/* כפתור צ'קאאוט */
 #checkoutDiv {
-    padding: 10px;
-    background-color: #f1f1f1;
+    padding: 15px;
+    background-color: #f0f4f7;
     display: flex;
     justify-content: center;
+    border-top: 1px solid #ddd;
 }
 
 #checkoutBtn {
-    width: 90%;
-    padding: 15px;
-    font-size: 18px;
+    width: 85%;
+    padding: 12px;
+    font-size: 16px;
     font-weight: bold;
     color: white;
-    background-color: #4CAF50;
+    background-color: #00796b;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 #checkoutBtn:hover {
-    background-color: #45a049;
+    background-color: #00695c;
 }
 
-
-
-
-
-
-
-
-
-
-
-/* אנימציה צק אאוט גיפיטי */
-
-
-
-/* הגדרת אנימציה ל-fade out ו-scale */
+/* אנימציה לצ'קאאוט */
 @keyframes checkoutAnimation {
     0% {
         opacity: 1;
         transform: scale(1);
     }
+
     100% {
         opacity: 0;
-        transform: scale(0.5);
+        transform: scale(0.8);
     }
 }
 
-/* הוספת מחלקה לאנימציה */
 .cartClosing {
-    animation: checkoutAnimation 0.5s forwards; /* 0.5 שניות */
+    animation: checkoutAnimation 0.4s forwards;
 }
