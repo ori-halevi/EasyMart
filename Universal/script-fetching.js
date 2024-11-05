@@ -53,15 +53,12 @@ async function addUserToDB(user) {
 }
 
 
-// userHasCart() checks if a user has a cart.
-async function userHasCart(userId) {
-  // Send a request to check if a cart exists for the user
-  const response = await fetch(`http://localhost:3000/carts?userId=${userId}`);
-  const carts = await response.json();
-  
-  // Return true if there is a cart, otherwise return false
-  return carts.length > 0;
-}
+
+
+
+
+
+
 
 
 
@@ -101,6 +98,27 @@ async function getProductById(id) {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // getAllCarts() returns a list of all carts objects.
 async function getAllCarts() {
     try {
@@ -137,9 +155,6 @@ async function getCartProductsByUserId(userId) {
       throw error;
   }
 }
-
-
-
 
 
 // updateUserCartInDB() updates a user's cart in the database.
@@ -224,3 +239,13 @@ async function deleteCartForUser(userId) {
 }
 
 
+
+// userHasCart() checks if a user has a cart.
+async function userHasCart(userId) {
+  // Send a request to check if a cart exists for the user
+  const response = await fetch(`http://localhost:3000/carts?userId=${userId}`);
+  const carts = await response.json();
+  
+  // Return true if there is a cart, otherwise return false
+  return carts.length > 0;
+}

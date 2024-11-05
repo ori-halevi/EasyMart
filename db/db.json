@@ -70,6 +70,14 @@
       "email": "haim@gmail.com",
       "address": "redberg",
       "password": "12341234"
+    },
+    {
+      "id": "3",
+      "firstName": "David",
+      "lastName": "po",
+      "email": "Da@gmail.com",
+      "address": "po",
+      "password": "12341234"
     }
   ],
   "carts": [
