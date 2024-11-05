@@ -1,7 +1,6 @@
 function getAllUsers() {
-  return fetch("http://localhost:3000/users").then((res) => res.json()); // Fix typo here
+  return fetch("http://localhost:5000/users").then((res) => res.json()); // Fix typo here
 }
-
 
 function getInputUser(id) {
   const input = document.getElementById(id).value;
@@ -16,12 +15,11 @@ function getDetails() {
 
 function callToIsUserExistInDB() {
   const { Emailaddress, password } = getDetails(); // שימוש נכון ב-destructuring
-  if(checkValidation()) {
+  if (checkValidation()) {
     isUserExistInDB(Emailaddress, password);
-  }
-  else{
+  } else {
     console.error("Error: Name or password is empty");
-    return
+    return;
   }
 }
 

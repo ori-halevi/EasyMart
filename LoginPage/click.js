@@ -26,11 +26,11 @@ function displaySignUp() {
 createAccountBtn.onclick = displayLogin ; 
 loginFromSignUp.onclick = displaySignUp;
 submitLogin.onclick = callToIsUserExistInDB;
-signUpSubmit.onclick = ()=>{
+signUpSubmit.onclick = (event)=>{
+  event.preventDefault();
   const f = getInputUser("inputSignUpFirstName")
   const l = getInputUser("inputsignUpLastName")
   const e = getInputUser("inputsignUpemail")
-  const a = getInputUser("inputsignUpAddress")
   const p = getInputUser("inputsignUppassword")
-  addUserInDB(f,l,e,a,p)
+  addUserInDB(f,l,e,p)
 };
