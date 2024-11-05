@@ -30,6 +30,8 @@ async function loadUserCart() {
     cartBodyDiv.innerHTML = "";
 
     products.forEach(async p => {
+        console.log(p.productId);
+        
         const product = await getProductById(p.productId);
         const productAmount = p.amount;
 
@@ -66,7 +68,7 @@ async function loadUserCart() {
         removeFromCartBtn.classList.add("removeFromCartBtn");
         removeFromCartBtn.textContent = "Remove from cart";
         removeFromCartBtn.addEventListener("click", async () => {
-            await updateCartProduct(currentUserId, product.id, 0); // קריאה לפונקציה שמסירה את המוצר
+            await updateCartProducts(currentUserId, product.id, 0); // קריאה לפונקציה שמסירה את המוצר
             loadUserCart(); // ריענון של עגלת הקניות
         });
 

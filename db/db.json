@@ -92,15 +92,7 @@
     {
       "id": "999999",
       "userId": 0,
-      "prodacts": [
-        {
-          "productId": "348596",
-          "amount": 1
-        },
-        {
-          "productId": "423456",
-          "amount": 1
-        },
+      "products": [
         {
           "productId": "748596",
           "amount": 1

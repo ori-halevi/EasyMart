@@ -76,55 +76,6 @@ async function getAllCarts() {
 }
 
 
-async function updateCartProduct(userId, productId, amount) {
-    try {
-        // קבלת כל ה-carts באמצעות הפונקציה הקיימת
-        const carts = await getAllCarts();
-        
-        // איתור ה-cart של המשתמש לפי ה-userId
-        const cart = carts.find(cart => cart.userId == userId);
-
-        if (!cart) {
-            throw new Error(`No cart found for user with ID ${userId}`);
-        }
-
-        // יצירת רשימת מוצרים מעודכנת
-        const updatedProducts = [...cart.prodacts];
-        const existingProductIndex = updatedProducts.findIndex(p => p.productId === productId);
-
-        if (existingProductIndex !== -1) {
-            if (amount === 0) {
-                // אם הכמות היא 0, מוחקים את המוצר
-                updatedProducts.splice(existingProductIndex, 1);
-            } else {
-                // אם המוצר כבר קיים, נעדכן את הכמות
-                updatedProducts[existingProductIndex].amount = amount;
-            }
-        } else if (amount > 0) {
-            // אם המוצר לא קיים והכמות גדולה מ-0, נוסיף אותו
-            updatedProducts.push({ productId: productId, amount: amount });
-        }
-
-        // עדכון cart עם המוצרים המעודכנים
-        const updatedCart = { ...cart, prodacts: updatedProducts };
-        const putResponse = await fetch(`http://localhost:3000/carts/${cart.id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(updatedCart)
-        });
-
-        if (!putResponse.ok) {
-            throw new Error(`Failed to update cart: ${putResponse.statusText}`);
-        }
-
-        const result = await putResponse.json();
-        console.log('Cart updated successfully:', result);
-    } catch (error) {
-        console.error('Error updating cart:', error);
-    }
-}
 
 async function getCartProductsByUserId(userId) {
     try {
@@ -132,14 +83,14 @@ async function getCartProductsByUserId(userId) {
         const carts = await getAllCarts();
 
         // איתור ה-cart של המשתמש לפי ה-userId
-        const cart = carts.find(cart => cart.userId === userId);
+        const cart = carts.find(cart => cart.userId == userId);
 
         if (!cart) {
             throw new Error(`No cart found for user with ID ${userId}`);
         }
 
         // החזרת רשימת המוצרים בעגלה
-        return cart.prodacts;
+        return cart.products;
     } catch (error) {
         console.error('Error fetching cart products:', error);
         throw error;
@@ -170,6 +121,36 @@ async function addUserToDB(user) {
 
 
 
+async function updateUserCartInDB(userId, updatedProducts) {
+  try {
+      // תחילה מאתרים את העגלה המתאימה לפי userId
+      const cartsResponse = await fetch("http://localhost:3000/carts");
+      const carts = await cartsResponse.json();
+      const userCart = carts.find(cart => cart.userId == userId);
+
+      if (!userCart) {
+          throw new Error(`No cart found for user with ID ${userId}`);
+      }
+
+      // מבצעים עדכון בעגלה לפי מזהה העגלה
+      const cartId = userCart.id;
+      const response = await fetch(`http://localhost:3000/carts/${cartId}`, {
+          method: 'PATCH',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ products: updatedProducts })
+      });
+
+      if (!response.ok) {
+          throw new Error(`Failed to update cart for user with ID ${userId}`);
+      }
+
+      console.log("Cart updated successfully");
+  } catch (error) {
+      console.error("Error updating cart:", error);
+  }
+}
 
 
 

@@ -55,7 +55,7 @@ async function revealProductsOnPage() {
 function addToCart(product, quantity) {
     if (isCurrentUserExistInLS()) {
         const currentUserId = JSON.parse(localStorage.getItem("currentUser")).id;
-        updateCartProduct(currentUserId, product.id, quantity);
+        updateCartProducts(currentUserId, product.id, quantity);
     } else {
         alert("Please login first");
     }
