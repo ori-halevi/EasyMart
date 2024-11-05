@@ -48,7 +48,6 @@ async function getAllProducts() {
 async function getProductById(id) {
   try {
     const allProducts = await getAllProducts();
-    console.log(allProducts.length);
     for (let i = 0; i < allProducts.length; i++) {
       if (allProducts[i].id === id) {
         return allProducts[i];

@@ -80,6 +80,10 @@
         {
           "productId": "748596",
           "amount": 1
+        },
+        {
+          "productId": "123456",
+          "amount": 1
         }
       ]
     }

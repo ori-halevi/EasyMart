@@ -30,7 +30,6 @@ async function loadUserCart() {
     cartBodyDiv.innerHTML = "";
 
     products.forEach(async p => {
-        console.log(p.productId);
         
         const product = await getProductById(p.productId);
         const productAmount = p.amount;
