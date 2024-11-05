@@ -35,7 +35,7 @@ async function loadUserCart() {
         const productAmount = p.amount;
 
         const productDiv = document.createElement("div");
-        productDiv.classList.add("productDiv");
+        productDiv.classList.add("SCproductDiv");
 
         const productInfoDiv = document.createElement("div");
         productInfoDiv.classList.add("productInfoDiv");
@@ -45,7 +45,7 @@ async function loadUserCart() {
         productImg.src = product.imgLink;
         productImg.alt = product.name;
 
-        const productNameH3 = document.createElement("h3");
+        const productNameH3 = document.createElement("p");
         productNameH3.classList.add("productName");
         productNameH3.textContent = product.name;
 
