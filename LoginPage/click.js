@@ -29,11 +29,11 @@ loginBtn.addEventListener("click", async () => {
   if (userReturn) {
     insertUserToLS(userReturn);
     window.location.href = "../StoreHomePage/StoreHomePage.html";
-
   }
 });
-// createAccountBtn.onclick = displayLogin;
-// loginFromSignUp.onclick = displaySignUp;
+
+createAccountBtn.addEventListener("click", displayLogin);
+backToLoginBtn.addEventListener("click", displaySignUp);
 // submitLogin.onclick = callToIsUserExistInDB;
 // signUpSubmit.onclick = (event) => {
 //   event.preventDefault();
@@ -43,3 +43,20 @@ loginBtn.addEventListener("click", async () => {
 //   const p = getInputUser("inputsignUppassword");
 //   addUserInDB(f, l, e, p);
 // };
+
+signUpSubmit.addEventListener("click", async () => {
+  const firstName = getInputUser("inputSignUpFirstName");
+  const lastName = getInputUser("inputsignUpLastName");
+  const email = getInputUser("loginEmail");
+  const address = getInputUser("inputsignUpAddress");
+  const password = document.getElementById("loginPassword").value;
+
+  if (!usernameValidation(firstName)) return;
+  if (!usernameValidation(lastName)) return;
+  if (!emailValidation(email)) return;
+  if (!passwordValidation(password)) return;
+
+  const userReturn = await CreateUserAndAddToDB(firstName, lastName, email, address, password);
+  insertUserToLS(userReturn);
+  // window.location.href = "../StoreHomePage/StoreHomePage.html";
+});
