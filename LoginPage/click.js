@@ -47,16 +47,16 @@ backToLoginBtn.addEventListener("click", displaySignUp);
 signUpSubmit.addEventListener("click", async () => {
   const firstName = getInputUser("inputSignUpFirstName");
   const lastName = getInputUser("inputsignUpLastName");
-  const email = getInputUser("loginEmail");
+  const email = getInputUser("inputsignUpemail");
   const address = getInputUser("inputsignUpAddress");
-  const password = document.getElementById("loginPassword").value;
+  const password = document.getElementById("inputsignUppassword").value;
 
   if (!usernameValidation(firstName)) return;
   if (!usernameValidation(lastName)) return;
   if (!emailValidation(email)) return;
-  if (!passwordValidation(password)) return;
+  // if (!passwordValidation(password)) return;
 
   const userReturn = await CreateUserAndAddToDB(firstName, lastName, email, address, password);
   insertUserToLS(userReturn);
-  // window.location.href = "../StoreHomePage/StoreHomePage.html";
+  window.location.href = "../StoreHomePage/StoreHomePage.html";
 });

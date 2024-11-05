@@ -62,30 +62,6 @@
       "email": "Binyamin@gmail.com",
       "address": "redberg",
       "password": "12341234"
-    },
-    {
-      "id": "2",
-      "firstName": "hhh",
-      "lastName": "jjj",
-      "email": "",
-      "address": "mnbmnb",
-      "password": ""
-    },
-    {
-      "id": "3",
-      "firstName": "jhugyudtresyr",
-      "lastName": "kjgdrhtsegr",
-      "email": "",
-      "address": "mkjhlgykf",
-      "password": ""
-    },
-    {
-      "id": "4",
-      "firstName": "nj",
-      "lastName": "bvjhf",
-      "email": "",
-      "address": "hhjvhg",
-      "password": ""
     }
   ],
   "carts": [
