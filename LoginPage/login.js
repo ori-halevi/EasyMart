@@ -29,7 +29,7 @@ function isUserExistInDB(emailAddress, password) {
       (u) => u.email == emailAddress && u.password == password
     );
     console.log(user);
-    
+
     if (user) {
       return Promise.resolve(user);
     } else {
@@ -37,7 +37,6 @@ function isUserExistInDB(emailAddress, password) {
     }
   });
 }
-
 
 // function insertElementError(areaClass, element) {
 //   if (typeof areaClass !== "string" || areaClass.trim() === "") {
@@ -89,23 +88,27 @@ function usernameValidation(username) {
 
 // פונקציה לבדוק אם האימייל תקין
 function emailValidation(email) {
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // דוגמת אימייל בסיסית
-  const isValid = emailPattern.test(email);
-  if (!isValid) {
-    console.error("Error: Invalid email format.");
+  const trimmedEmail = email.trim(); // מסיר רווחים בתחילת ובסוף המחרוזת
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // דפוס אימייל בסיסי
+
+  if (!emailPattern.test(trimmedEmail)) {
+    return { isValid: false, error: "Invalid email format." }; // החזרת הודעת שגיאה
   }
-  return isValid; // מחזירה אמת אם האימייל תקין, אחרת שקר
+
+  return { isValid: true }; // אימייל תקין
 }
 
 // פונקציה לבדוק אם הסיסמה תקינה
 function passwordValidation(password) {
-  // בדיקת אורך מינימלי
-  if (typeof password !== "string" || password.length < 8) {
-    console.error("Error: Password must be at least 8 characters long.");
-    return false;
+  // בדיקה האם המחרוזת מורכבת רק מספרים
+  if (!/^\d+$/.test(password)) {
+    if (!password.length == 8) {
+      alert("Error: Password must be 8 characters long.");
+      return false;
+    }
+    return true; // הסיסמה תקינה
   }
-  // ניתן להוסיף בדיקות נוספות (אות גדולה, תו מיוחד וכו')
-  return true; // הסיסמה תקינה
+  alert("Error: Password must contain only numbers.");
 }
 
 //לבנות פונקציה שמקבלת את הנתונים ומכניסה לדאטה בייס ומכניסה ללוקל ומרעננת דף
@@ -118,32 +121,23 @@ function insertUserToLS(user) {
 }
 // Execute the check function
 
-function addUserInDB(firstName, lastName, email, password) {
+async function CreateUserAndAddToDB(firstName, lastName, email, add ress, password) {
+  const allUsers = await getAllUsers();
+
+  const newId = String(Number(allUsers[allUsers.length - 1].id) + 1);
+
   const newUser = {
+    id: newId,
     firstName,
     lastName,
     email,
-    address: "",
+    address,
     password,
   };
+  const oo =  await addUserToDB(newUser);
+  console.log(oo);
+  
+  insertUserToLS(newUser);
 
-  fetch("http://localhost:3000/users", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(newUser),
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log("User added successfully:", data);
-    })
-    .catch((error) => {
-      console.error("Error adding user:", error);
-    });
 }
+

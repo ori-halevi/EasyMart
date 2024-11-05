@@ -145,11 +145,28 @@ async function getCartProductsByUserId(userId) {
         throw error;
     }
 }
+  
 
 
 
-
-
+async function addUserToDB(user) {
+  try {
+    const response = await fetch("http://localhost:3000/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    });
+    if (response.ok) {
+      return await response.json();
+    } else {
+      throw new Error("Failed to add user");
+    }
+  } catch (error) {
+    console.error("Error adding user:", error);
+  }
+}
 
 
 
