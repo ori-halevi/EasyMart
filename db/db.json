@@ -17,7 +17,7 @@
       "lastName": "Halevi",
       "email": "Ori@gmail.com",
       "address": "greenberg",
-      "password": "1234"
+      "password": "12341234"
     },
     {
       "id": "1",
@@ -25,7 +25,7 @@
       "lastName": "Zaidman",
       "email": "Binyamin@gmail.com",
       "address": "redberg",
-      "password": "1234"
+      "password": "12341234"
     }
   ],
   "carts": [
