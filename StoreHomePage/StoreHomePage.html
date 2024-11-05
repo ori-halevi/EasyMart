@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,18 @@
     <link rel="stylesheet" href="./style-products.css">
     <link rel="stylesheet" href="./style-ShoppingCart.css">
 </head>
+
 <body>
     <div id="mainDiv">
-        
+
         <div id="blackDiv">
             <div id="cartDiv">
                 <div id="cartHeaderDiv"></div>
                 <div id="cartBodyDiv"></div>
+
+                <div id="checkoutDiv">
+                    <button id="checkoutBtn" onclick="checkout()">Checkout</button>
+                </div>
             </div>
         </div>
 
@@ -38,12 +44,14 @@
 
                 <div id="loginDiv">
                     <span>login</span>
-                    <img src="https://www.shufersal.co.il/online/_ui/responsive/theme-miglog/img/header+Navigation/header-new-icons-user.svg" alt="">
+                    <img src="https://www.shufersal.co.il/online/_ui/responsive/theme-miglog/img/header+Navigation/header-new-icons-user.svg"
+                        alt="">
                 </div>
 
                 <div id="myCartDiv">
                     <span>my cart</span>
-                    <img src="https://www.shufersal.co.il/online/_ui/responsive/theme-miglog/img/header+Navigation/icon-openCart.svg" alt="">
+                    <img src="https://www.shufersal.co.il/online/_ui/responsive/theme-miglog/img/header+Navigation/icon-openCart.svg"
+                        alt="">
                 </div>
 
             </div>
@@ -52,10 +60,11 @@
 
 
                 <input id="searchbarInput" type="text" placeholder="">
+                <!-- <button id = "searchbarbutton">search</button> -->
 
             </div>
 
-        </div>
+        </div>        
 
         <div id="mainContainerDiv">
 
@@ -72,4 +81,5 @@
     <script src="./script-ShoppingCart.js"></script>
     <script src="./script.js"></script>
 </body>
+
 </html>

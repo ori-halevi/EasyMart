@@ -1,12 +1,17 @@
 const blackDiv = document.getElementById("blackDiv");
 
-
+blackDiv.addEventListener("click", (event) => {
+    if (event.target != blackDiv) return
+    
+    toggleDisplayCart()
+}
+)
 
 function openCart() {
     if (!isCurrentUserExistInLS()) return;
     toggleDisplayCart(true);
     loadUserCart();
-    
+
 
 }
 
@@ -23,7 +28,7 @@ async function loadUserCart() {
     const products = await getCartProductsByUserId(currentUserId);
     const cartBodyDiv = document.getElementById("cartBodyDiv");
     cartBodyDiv.innerHTML = "";
-    
+
     products.forEach(async p => {
         const product = await getProductById(p.productId);
         const productAmount = p.amount;
@@ -76,4 +81,22 @@ async function loadUserCart() {
 
         cartBodyDiv.appendChild(productDiv);
     });
+}
+
+
+// צקאאוט גיפיטי
+
+function checkout() {
+    // הוספת האנימציה לעגלה
+    const cartDiv = document.getElementById("cartDiv");
+    cartDiv.classList.add("cartClosing");
+
+    // מחכים לסיום האנימציה לפני החזרה לעמוד
+    setTimeout(() => {
+        cartDiv.style.display = "none";
+        document.getElementById("blackDiv").style.display = "none";
+        cartDiv.classList.remove("cartClosing"); // הסרת המחלקה לשימוש חוזר
+        // כאן ניתן להוסיף קוד לחזרה לעמוד מוצרים
+        // לדוגמה: window.location.href = "products.html";
+    }, 500); // מסונכרן עם משך האנימציה
 }
