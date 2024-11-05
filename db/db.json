@@ -63,6 +63,15 @@
       "address": "redberg",
       "password": "12341234"
     }
+    },
+    {
+      "id": "2",
+      "firstName": "haim",
+      "lastName": "krishevski",
+      "email": "haim@gmail.com",
+      "address": "redberg",
+      "password": "12341234"
+    }
   ],
   "carts": [
     {
