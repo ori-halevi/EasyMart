@@ -121,7 +121,7 @@ function insertUserToLS(user) {
 }
 // Execute the check function
 
-async function CreateUserAndAddToDB(firstName, lastName, email, add ress, password) {
+async function CreateUserAndAddToDB(firstName, lastName, email, address, password) {
   const allUsers = await getAllUsers();
 
   const newId = String(Number(allUsers[allUsers.length - 1].id) + 1);
@@ -134,10 +134,8 @@ async function CreateUserAndAddToDB(firstName, lastName, email, add ress, passwo
     address,
     password,
   };
-  const oo =  await addUserToDB(newUser);
-  console.log(oo);
+  return await addUserToDB(newUser);
   
-  insertUserToLS(newUser);
 
 }
 
