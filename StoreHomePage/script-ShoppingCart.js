@@ -23,8 +23,8 @@ function toggleDisplayCart(bool) {
     }
 }
 async function loadUserCart() {
-    // const currentUserId = localStorage.getItem("userId");
-    const currentUserId = 0;
+    const currentUserId = localStorage.getItem("userId");
+    // const currentUserId = 0;
     const products = await getCartProductsByUserId(currentUserId);
     const cartBodyDiv = document.getElementById("cartBodyDiv");
     cartBodyDiv.innerHTML = "";

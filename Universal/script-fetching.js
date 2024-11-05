@@ -152,6 +152,36 @@ async function updateUserCartInDB(userId, updatedProducts) {
 }
 
 
+async function createCartForUser(userId) {
+  // בדוק אם יש כבר עגלה עבור המשתמש
+  const response = await fetch(`http://localhost:3000/carts?userId=${userId}`);
+  const existingCarts = await response.json();
+
+  // אם יש עגלה קיימת, החזר אותה
+  if (existingCarts.length > 0) {
+      console.log("עגלה כבר קיימת:", existingCarts[0]);
+      return existingCarts[0];
+  }
+
+  // אם אין עגלה, צור אחת חדשה
+  const newCart = {
+      userId: userId,
+      products: [] // עגלה חדשה מתחילה עם מוצרים ריקים
+  };
+
+  const createResponse = await fetch('http://localhost:3000/carts', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newCart)
+  });
+
+  const createdCart = await createResponse.json();
+  console.log("עגלה חדשה נוצרה:", createdCart);
+  return createdCart;
+}
+
 
 
 
