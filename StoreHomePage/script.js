@@ -14,7 +14,9 @@ function isCurrentUserExistInLS() {
 
 // פונקציה שתעדכן את עגלת הקניות של המשתמש
 async function updateCartProducts(userId, productId, amount) {
-    await createCartForUser(userId);
+    if (!await userHasCart(userId)) {
+        await createCartForUser(userId);
+    }
     const allCartProducts = await getCartProductsByUserId(userId);
 
     if (!allCartProducts) {

@@ -75,7 +75,7 @@
   "carts": [
     {
       "id": "999999",
-      "userId": 0,
+      "userId": "0",
       "products": [
         {
           "productId": "748596",
@@ -84,6 +84,28 @@
         {
           "productId": "123456",
           "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "d98f",
+      "userId": "2",
+      "products": [
+        {
+          "productId": "423456",
+          "amount": 10
+        },
+        {
+          "productId": "740000",
+          "amount": 15
+        },
+        {
+          "productId": "123456",
+          "amount": 30
+        },
+        {
+          "productId": "748596",
+          "amount": 16
         }
       ]
     }

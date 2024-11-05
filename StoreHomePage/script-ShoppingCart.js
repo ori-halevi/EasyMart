@@ -7,10 +7,16 @@ blackDiv.addEventListener("click", (event) => {
 }
 )
 
-function openCart() {
+async function openCart() {
     if (!isCurrentUserExistInLS()) return;
+    
     toggleDisplayCart(true);
-    loadUserCart();
+    if (await userHasCart(JSON.parse(localStorage.getItem("currentUser")).id)) {
+        loadUserCart();
+    } else {
+        const cartBodyDiv = document.getElementById("cartBodyDiv");
+        cartBodyDiv.innerHTML = "Your cart is empty";
+    }
 
 
 }
@@ -25,7 +31,6 @@ function toggleDisplayCart(bool) {
 async function loadUserCart() {
     let currentUserId = localStorage.getItem("currentUser");
     currentUserId = JSON.parse(currentUserId).id;
-    // const currentUserId = 0;
     const products = await getCartProductsByUserId(currentUserId);
     const cartBodyDiv = document.getElementById("cartBodyDiv");
     cartBodyDiv.innerHTML = "";
@@ -90,15 +95,16 @@ async function loadUserCart() {
 
 function checkout() {
     // הוספת האנימציה לעגלה
-    const cartDiv = document.getElementById("cartDiv");
-    cartDiv.classList.add("cartClosing");
+    // const cartDiv = document.getElementById("cartDiv");
+    // cartDiv.classList.add("cartClosing");
 
-    // מחכים לסיום האנימציה לפני החזרה לעמוד
-    setTimeout(() => {
-        cartDiv.style.display = "none";
-        document.getElementById("blackDiv").style.display = "none";
-        cartDiv.classList.remove("cartClosing"); // הסרת המחלקה לשימוש חוזר
-        // כאן ניתן להוסיף קוד לחזרה לעמוד מוצרים
-        // לדוגמה: window.location.href = "products.html";
-    }, 500); // מסונכרן עם משך האנימציה
+    // // מחכים לסיום האנימציה לפני החזרה לעמוד
+    // setTimeout(() => {
+    //     cartDiv.style.display = "none";
+    //     document.getElementById("blackDiv").style.display = "none";
+    //     cartDiv.classList.remove("cartClosing"); // הסרת המחלקה לשימוש חוזר
+    //     // כאן ניתן להוסיף קוד לחזרה לעמוד מוצרים
+    //     // לדוגמה: window.location.href = "products.html";
+    // }, 500); // מסונכרן עם משך האנימציה
+    deleteCartForUser(JSON.parse(localStorage.getItem("currentUser")).id);
 }
