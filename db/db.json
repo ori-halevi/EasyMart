@@ -32,20 +32,7 @@
     {
       "id": "999999",
       "userId": 0,
-      "prodacts": [
-        {
-          "productId": 348596,
-          "amount": 4
-        },
-        {
-          "productId": 423456,
-          "amount": 2
-        },
-        {
-          "productId": 740000,
-          "amount": 1
-        }
-      ]
+      "prodacts": []
     }
   ]
 }

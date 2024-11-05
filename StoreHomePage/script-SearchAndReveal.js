@@ -5,11 +5,12 @@ const loginDiv = document.getElementById("loginDiv");
 const myCartDiv = document.getElementById("myCartDiv");
 
 window.onload = async () => {
-    await revealProductsOnPage("");
+    toggleDisplayCart(false);
+    await revealProductsOnPage();
     if (isCurrentUserExistInLS()) {
         loginDiv.style.display = "none";        
     } else {
-        // myCartDiv.style.display = "none";
+        myCartDiv.style.display = "none";
     }
 };
 
@@ -51,9 +52,10 @@ async function revealProductsOnPage() {
     };
 
 
-function addToCart(product) {
+function addToCart(product, quantity) {
     if (isCurrentUserExistInLS()) {
-        updateCartProduct(13231, product.id, 1);
+        const currentUserId = JSON.parse(localStorage.getItem("currentUser")).id;
+        updateCartProduct(currentUserId, product.id, quantity);
     } else {
         alert("Please login first");
     }
@@ -62,11 +64,6 @@ function addToCart(product) {
 
 
 
-function openCart() {
-    if (!isCurrentUserExistInLS()) return;
-    
-
-}
 
 
 
@@ -112,28 +109,41 @@ function createProductCard(product) {
     const productNameH3 = document.createElement("h3");
     productNameH3.classList.add("productName");
     productNameH3.textContent = product.name;
-    // const productDescriptionP = document.createElement("p");
-    // productDescriptionP.classList.add("productDescription");
-    // productDescriptionP.textContent = product.description;
     const productWeightP = document.createElement("p");
     productWeightP.classList.add("productWeight");
     productWeightP.textContent = product.weight;
     const productPriceP = document.createElement("p");
     productPriceP.classList.add("productPrice");
     productPriceP.textContent = product.price;
+
+    // יצירת רכיב לבחירת כמות
+    const quantityInput = document.createElement("input");
+    quantityInput.classList.add("quantityInput");
+    quantityInput.type = "number";
+    quantityInput.min = "1";
+    quantityInput.value = "1"; // כמות ברירת מחדל
+
+    // יצירת כפתור הוספה לסל
     const addToCartBtnDiv = document.createElement("div");
     addToCartBtnDiv.classList.add("addToCartBtnDiv");
     addToCartBtnDiv.textContent = "Add to cart";
     addToCartBtnDiv.addEventListener("click", () => {
-        addToCart(product);
-    })
+        const quantity = parseInt(quantityInput.value);
+        if (quantity > 0) {
+            addToCart(product, quantity); // שולח גם את הכמות
+        } else {
+            alert("Please select a valid quantity.");
+        }
+    });
+
+    // הוספת כל הרכיבים למבנה ה-DOM
     productInfoDiv.appendChild(productImg);
     productInfoDiv.appendChild(productNameH3);
     productInfoDiv.appendChild(productWeightP);
     productInfoDiv.appendChild(productPriceP);
     productDiv.appendChild(productInfoDiv);
+    productDiv.appendChild(quantityInput); // מוסיף את שדה הכמות
     productDiv.appendChild(addToCartBtnDiv);
-    // productDiv.appendChild(productDescriptionP);
-    searchResultDiv.appendChild(productDiv);
 
+    searchResultDiv.appendChild(productDiv);
 }
