@@ -101,7 +101,7 @@ function emailValidation(email) {
 // פונקציה לבדוק אם הסיסמה תקינה
 function passwordValidation(password) {
   // בדיקה האם המחרוזת מורכבת רק מספרים
-  if (!/^\d+$/.test(password)) {
+  if (/^\d+$/.test(password)) {
     if (!password.length == 8) {
       alert("Error: Password must be 8 characters long.");
       return false;
