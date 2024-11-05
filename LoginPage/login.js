@@ -1,5 +1,5 @@
 function getAllUsers() {
-  return fetch("http://localhost:5000/users").then((res) => res.json()); // Fix typo here
+  return fetch("http://localhost:3000/users").then((res) => res.json()); // Fix typo here
 }
 
 function getInputUser(id) {
@@ -127,7 +127,7 @@ function addUserInDB(firstName, lastName, email, password) {
     password,
   };
 
-  fetch("http://localhost:5000/users", {
+  fetch("http://localhost:3000/users", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -4,7 +4,7 @@ const users = [];
 
 function getallusers() {
   try {
-    fetch("http://localhost:5000/users")
+    fetch("http://localhost:3000/users")
       .then((res) => res.json())
       .then((users) => console.log(users));
   } catch (error) {

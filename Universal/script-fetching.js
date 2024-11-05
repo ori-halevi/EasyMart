@@ -80,9 +80,9 @@ async function updateCartProduct(userId, productId, amount) {
     try {
         // קבלת כל ה-carts באמצעות הפונקציה הקיימת
         const carts = await getAllCarts();
-
+        
         // איתור ה-cart של המשתמש לפי ה-userId
-        const cart = carts.find(cart => cart.userId === userId);
+        const cart = carts.find(cart => cart.userId == userId);
 
         if (!cart) {
             throw new Error(`No cart found for user with ID ${userId}`);
