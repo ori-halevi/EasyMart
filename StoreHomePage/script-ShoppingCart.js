@@ -23,7 +23,8 @@ function toggleDisplayCart(bool) {
     }
 }
 async function loadUserCart() {
-    const currentUserId = localStorage.getItem("userId");
+    let currentUserId = localStorage.getItem("currentUser");
+    currentUserId = JSON.parse(currentUserId).id;
     // const currentUserId = 0;
     const products = await getCartProductsByUserId(currentUserId);
     const cartBodyDiv = document.getElementById("cartBodyDiv");
