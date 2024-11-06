@@ -78,6 +78,30 @@
       "email": "Da@gmail.com",
       "address": "po",
       "password": "12341234"
+    },
+    {
+      "id": "4",
+      "firstName": "חיים",
+      "lastName": "קרישבסקי",
+      "email": "haim3914@gmail.com",
+      "address": "אבן גבירול 8 בני ברק",
+      "password": "12345678"
+    },
+    {
+      "id": "5",
+      "firstName": "גל",
+      "lastName": "מדר",
+      "email": "gal@gmail.com",
+      "address": "תל אביב",
+      "password": "23456789"
+    },
+    {
+      "id": "6",
+      "firstName": "טל",
+      "lastName": "יזהר",
+      "email": "talizhar@gmail.com",
+      "address": "גבעתיים",
+      "password": "34567890"
     }
   ],
   "carts": [
@@ -96,24 +120,32 @@
       ]
     },
     {
-      "id": "d98f",
-      "userId": "2",
+      "id": "8e70",
+      "userId": "5",
       "products": [
         {
           "productId": "423456",
-          "amount": 10
-        },
+          "amount": 3
+        }
+      ]
+    },
+    {
+      "id": "50d1",
+      "userId": "4",
+      "products": [
         {
-          "productId": "740000",
-          "amount": 15
-        },
+          "productId": "348596",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "7ba8",
+      "userId": "6",
+      "products": [
         {
-          "productId": "123456",
-          "amount": 30
-        },
-        {
-          "productId": "748596",
-          "amount": 16
+          "productId": "423456",
+          "amount": 1
         }
       ]
     }

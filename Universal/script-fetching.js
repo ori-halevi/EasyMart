@@ -80,6 +80,7 @@ async function getAllProducts() {
     return products;
   } catch (error) {
     console.error("Failed to fetch all products:", error);
+    return [];
   }
 }
 
