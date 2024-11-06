@@ -1,7 +1,8 @@
 // getAllUsers() returns a list of users objects.
 function getAllUsers() {
   return fetch("http://localhost:3000/users")
-  .then((res) => res.json()); // Fix typo here
+  .then((res) => {
+    res.json()}); // Fix typo here
 }
 
 // isUserExistInDB() checks if a user exists in the database.
@@ -51,7 +52,6 @@ async function addUserToDB(user) {
     console.error("Error adding user:", error);
   }
 }
-
 
 
 
