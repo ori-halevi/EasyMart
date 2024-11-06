@@ -102,6 +102,22 @@
       "email": "talizhar@gmail.com",
       "address": "גבעתיים",
       "password": "34567890"
+    },
+    {
+      "id": "7",
+      "firstName": "רב",
+      "lastName": "טק",
+      "email": "ravtech@gmail.com",
+      "address": "בר כוכבא",
+      "password": "87654321"
+    },
+    {
+      "id": "8",
+      "firstName": "david",
+      "lastName": "pechtalt",
+      "email": "davidpechtalt@gmail.com",
+      "address": "hazon ish 14",
+      "password": "12345678"
     }
   ],
   "carts": [
@@ -140,14 +156,35 @@
       ]
     },
     {
-      "id": "7ba8",
-      "userId": "6",
+      "id": "a10e",
+      "userId": "7",
       "products": [
         {
+          "productId": "348596",
+          "amount": 1
+        },
+        {
           "productId": "423456",
+          "amount": 8
+        },
+        {
+          "productId": "123456",
+          "amount": 1
+        },
+        {
+          "productId": "740000",
+          "amount": 1
+        },
+        {
+          "productId": "748596",
           "amount": 1
         }
       ]
+    },
+    {
+      "id": "7b9e",
+      "userId": "8",
+      "products": []
     }
   ]
 }

@@ -82,7 +82,7 @@ async function getAllProducts() {
     console.error("Failed to fetch all products:", error);
     return [];
   }
-}
+} 
 
 // getProductById() returns a product object.
 async function getProductById(id) {
