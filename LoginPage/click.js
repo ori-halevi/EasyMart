@@ -9,6 +9,8 @@ const backToLoginBtn = document.querySelector("#backToLoginBtn");
 const signUpSubmit = document.querySelector("#signUpSubmit");
 const loginBtn = document.querySelector("#loginBtn");
 
+const imgLOgo = document.querySelector("#imgLOgo");
+
 function displayLogin() {
   loginDiv.style.display = "none";
   signUPDiv.style.display = "block";
@@ -58,5 +60,9 @@ signUpSubmit.addEventListener("click", async () => {
 
   const userReturn = await CreateUserAndAddToDB(firstName, lastName, email, address, password);
   insertUserToLS(userReturn);
+  window.location.href = "../StoreHomePage/StoreHomePage.html";
+});
+
+imgLOgo.addEventListener("click", () => {
   window.location.href = "../StoreHomePage/StoreHomePage.html";
 });

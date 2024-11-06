@@ -36,7 +36,7 @@ async function updateCartProducts(userId, productId, amount) {
         }
     } else if (amount > 0) {
         // אם המוצר לא קיים והכמות גדולה מ-0, נוסיף אותו
-        allCartProducts.push({ productId: productId, amount: amount });
+        allCartProducts.push({ productId, amount });
     }
 
     // עדכון העגלה עם רשימת המוצרים המעודכנת

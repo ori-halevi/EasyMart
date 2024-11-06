@@ -1,7 +1,3 @@
-function getAllUsers() {
-  return fetch("http://localhost:3000/users").then((res) => res.json()); // Fix typo here
-}
-
 function getInputUser(id) {
   const input = document.getElementById(id).value;
   return input;
@@ -123,7 +119,7 @@ function insertUserToLS(user) {
 
 async function CreateUserAndAddToDB(firstName, lastName, email, address, password) {
   const allUsers = await getAllUsers();
-
+  
   const newId = String(Number(allUsers[allUsers.length - 1].id) + 1);
 
   const newUser = {
@@ -134,8 +130,7 @@ async function CreateUserAndAddToDB(firstName, lastName, email, address, passwor
     address,
     password,
   };
-  return await addUserToDB(newUser);
-  
-
+  await addUserToDB(newUser);
+  return newUser;
 }
 
