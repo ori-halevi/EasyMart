@@ -193,9 +193,8 @@ async function updateUserCartInDB(userId, updatedProducts) {
 // createCartForUser() creates a new cart for a user.
 async function createCartForUser(userId) {
   // Check if there is already a cart for the user
-  const response = await fetch(`http://localhost:3000/carts?userId=${userId}`);
-  const existingCarts = await response.json();
-
+  if (await userHasCart(userId)) return;
+5
   // If there is no cart, create a new one
   const newCart = {
       userId: userId,
